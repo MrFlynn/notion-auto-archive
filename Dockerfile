@@ -1,14 +1,14 @@
 FROM alpine:latest as base
 
-RUN adduser -u 10000 -H -D ${PROJECT_NAME}
+RUN adduser -u 10000 -H -D notion-auto-archive
 
 FROM scratch
 
 COPY --from=base /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=base /etc/passwd /etc/passwd
 
-COPY ${PROJECT_NAME} /bin/${PROJECT_NAME}
+COPY notion-auto-archive /bin/notion-auto-archive
 
-USER ${PROJECT_NAME}
+USER notion-auto-archive
 
-ENTRYPOINT [ "/bin/${PROJECT_NAME}" ]
+ENTRYPOINT [ "/bin/notion-auto-archive" ]
