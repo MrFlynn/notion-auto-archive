@@ -22,7 +22,7 @@ func NewNotionHandler(key string) (handler *NotionHandler) {
 
 // GetTasksOnBoard returns a slice ot page (task) objects on that match the Selectors.SourceColumn attribute of the
 // TaskBoard parameter.
-func (n *NotionHandler) GetTasksOnBoard(ctx context.Context, board TaskBoard) (tasks []notion.Page, err error) {
+func (n *NotionHandler) GetTasksOnBoard(ctx context.Context, board *TaskBoard) (tasks []notion.Page, err error) {
 	var (
 		results notion.DatabaseQueryResponse
 
@@ -57,7 +57,7 @@ func (n *NotionHandler) GetTasksOnBoard(ctx context.Context, board TaskBoard) (t
 }
 
 // MoveTasks moves all the individual pages (tasks) to the column specified in Selectors.TargetColumn.
-func (n *NotionHandler) MoveTasks(ctx context.Context, board TaskBoard, tasks ...notion.Page) (err error) {
+func (n *NotionHandler) MoveTasks(ctx context.Context, board *TaskBoard, tasks ...notion.Page) (err error) {
 	for _, task := range tasks {
 		params := notion.UpdatePageParams{
 			DatabasePageProperties: &notion.DatabasePageProperties{
