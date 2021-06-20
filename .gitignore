@@ -16,3 +16,12 @@
 
 # Goreleaser output
 dist/
+
+# Configuration files
+*.yaml
+!.goreleaser.yaml
+!.github/workflows/*.yaml
+
+*.yml
+!.goreleaser.yml
+!.github/workflows/*.yml
