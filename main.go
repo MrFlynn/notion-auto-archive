@@ -19,11 +19,14 @@ var (
 
 func init() {
 	flag.StringVar(
-		&configFilePath, "config", "config.yml", "Path to yaml-formatted configuration file (default config.yml)",
+		&configFilePath, "config", "config.yml", "Path to yaml-formatted configuration file",
 	)
 	flag.StringVar(
-		&apiKey, "api", lookupEnvDefault("NOTION_AUTO_ARCHIVE_API_KEY", ""), "Notion.so API key",
+		&apiKey, "key", lookupEnvDefault("NOTION_AUTO_ARCHIVE_API_KEY", ""),
+		"Notion.so API key (can also be set using NOTION_AUTO_ARCHIVE_API_KEY environment variable)",
 	)
+
+	flag.Parse()
 }
 
 func runBoard(board *TaskBoard, handler *NotionHandler) {
