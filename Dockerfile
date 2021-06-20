@@ -12,3 +12,4 @@ COPY notion-auto-archive /bin/notion-auto-archive
 USER notion-auto-archive
 
 ENTRYPOINT [ "/bin/notion-auto-archive" ]
+CMD [ "-config=/config.yml" ]
