@@ -25,8 +25,8 @@ dockers:
   - ids:
       - default
     image_templates:
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-amd64"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-amd64"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-amd64"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-amd64"
     use_buildx: true
     dockerfile: Dockerfile
     build_flag_templates:
@@ -36,13 +36,13 @@ dockers:
       - "--label=org.opencontainers.image.licenses=MIT"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
-      - "--label=org.opencontainers.image.source=https://github.com/MrFlynn/notion-auto-archive"
+      - "--label=org.opencontainers.image.source=https://github.com/mrflynn/notion-auto-archive"
       - "--platform=linux/amd64"
   - ids:
       - default
     image_templates:
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-arm64v8"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-arm64v8"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-arm64v8"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-arm64v8"
     use_buildx: true
     dockerfile: Dockerfile
     goarch: arm64
@@ -53,13 +53,13 @@ dockers:
       - "--label=org.opencontainers.image.licenses=MIT"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
-      - "--label=org.opencontainers.image.source=https://github.com/MrFlynn/notion-auto-archive"
+      - "--label=org.opencontainers.image.source=https://github.com/mrflynn/notion-auto-archive"
       - "--platform=linux/arm64/v8"
   - ids:
       - default
     image_templates:
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-armv7"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-armv7"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-armv7"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-armv7"
     use_buildx: true
     dockerfile: Dockerfile
     goarch: arm
@@ -71,19 +71,19 @@ dockers:
       - "--label=org.opencontainers.image.licenses=MIT"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
-      - "--label=org.opencontainers.image.source=https://github.com/MrFlynn/notion-auto-archive"
+      - "--label=org.opencontainers.image.source=https://github.com/mrflynn/notion-auto-archive"
       - "--platform=linux/arm/v7"
 docker_manifests:
-  - name_template: "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}"
+  - name_template: "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}"
     image_templates:
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-amd64"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-arm64v8"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:{{ .Version }}-armv7"
-  - name_template: "ghcr.io/MrFlynn/{{ .ProjectName }}:latest"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-amd64"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-arm64v8"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:{{ .Version }}-armv7"
+  - name_template: "ghcr.io/mrflynn/{{ .ProjectName }}:latest"
     image_templates:
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-amd64"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-arm64v8"
-      - "ghcr.io/MrFlynn/{{ .ProjectName }}:latest-armv7"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-amd64"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-arm64v8"
+      - "ghcr.io/mrflynn/{{ .ProjectName }}:latest-armv7"
 checksum:
   name_template: SHASUMS.txt
 snapshot:
