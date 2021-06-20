@@ -43,11 +43,6 @@ func LoadConfigurationFile(filename string) (config *Configuration, err error) {
 		return
 	}
 
-	if config.APIKey == "" {
-		err = errors.New("api key cannot be empty")
-		return
-	}
-
 	if len(config.Boards) < 1 {
 		err = errors.New("at least one task board must be specified")
 	}

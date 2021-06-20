@@ -26,15 +26,6 @@ apiKey: test_key
 boards:
   - id: test_id
 `
-	invalidConfigMissingAPIKey = `
-boards:
-- id: test_id
-  archiveAfter: 24h
-  selectors:
-    columnName: Status
-    sourceColumn: Completed
-    targetColumn: Archived
-`
 	invalidConfigMissingBoards = `
 apiKey: test_key
 `
@@ -119,19 +110,6 @@ func TestValidConfigWithDefaults(t *testing.T) {
 
 		if parsed := config.Boards[0].archiveAfterParsed.Duration(); parsed != 24*time.Hour {
 			t.Errorf("Expected parsed time to field to be %v, got %v", 24*time.Hour, parsed)
-		}
-	})
-}
-
-func TestMissingAPIKey(t *testing.T) {
-	temporaryFileTestWrapper(t, invalidConfigMissingAPIKey, func(t *testing.T, filename string) {
-		_, err := LoadConfigurationFile(filename)
-		if err == nil {
-			t.Error("Expected error, got nil")
-		}
-
-		if err.Error() != "api key cannot be empty" {
-			t.Errorf("Expected error to be 'api key cannot be empty', but got '%s'", err)
 		}
 	})
 }
