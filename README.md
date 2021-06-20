@@ -1,5 +1,7 @@
 # Notion Auto-Archive
 
+[![Tests](https://github.com/MrFlynn/notion-auto-archive/actions/workflows/test.yml/badge.svg)](https://github.com/MrFlynn/notion-auto-archive/actions/workflows/test.yml)
+
 Automatically archives old tasks on a Notion task board. This is to prevent your
 column of completed tasks from getting filled with old tasks.
 
