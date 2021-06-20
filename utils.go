@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"time"
 
 	"github.com/dstotijn/go-notion"
@@ -43,6 +44,17 @@ func FilterOnLastEditedTime(beforeCutoff time.Time, tasks []notion.Page) (filter
 		if beforeCutoff.After(task.LastEditedTime) {
 			filteredTasks = append(filteredTasks, task)
 		}
+	}
+
+	return
+}
+
+func lookupEnvDefault(key, defaultValue string) (value string) {
+	var ok bool
+
+	value, ok = os.LookupEnv(key)
+	if !ok {
+		value = defaultValue
 	}
 
 	return
